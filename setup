@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SKILLS_DIR="$HOME/.claude/skills/bizstack"
+DATA_DIR="$HOME/.bizstack"
+
+echo "bizstack setup"
+echo "=============="
+echo ""
+
+# Create skills symlink
+echo "→ Linking skills to $SKILLS_DIR"
+mkdir -p "$(dirname "$SKILLS_DIR")"
+if [ -L "$SKILLS_DIR" ]; then
+    echo "  Symlink already exists, updating..."
+    rm "$SKILLS_DIR"
+elif [ -d "$SKILLS_DIR" ]; then
+    echo "  Directory exists at $SKILLS_DIR. Please remove it first."
+    exit 1
+fi
+ln -s "$SCRIPT_DIR" "$SKILLS_DIR"
+echo "  Done."
+
+# Create data directories
+echo "→ Creating data directory at $DATA_DIR"
+mkdir -p "$DATA_DIR"/{personas,pricing,gtm,market,plans,launch/materials,content,growth,feedback,retros}
+echo "  Done."
+
+echo ""
+echo "bizstack installed successfully!"
+echo ""
+echo "Available skills:"
+echo "  /persona  — Define your target user"
+echo "  /pricing  — Design your pricing model"
+echo "  /gtm      — Plan your go-to-market strategy"
+echo ""
+echo "Data will be stored in $DATA_DIR"

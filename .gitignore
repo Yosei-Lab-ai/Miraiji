@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Local data (stored in ~/.bizstack/, not in repo)
+*.local
+
+# Node (in case of future tooling)
+node_modules/
