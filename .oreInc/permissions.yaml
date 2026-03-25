@@ -1,0 +1,14 @@
+auto_allowed:
+  - lint
+  - test
+  - build
+  - report_generation
+requires_approval:
+  - deploy
+  - publish
+  - financial_transaction
+  - external_api_call
+forbidden:
+  - delete_production_data
+  - modify_credentials
+  - push_to_main_without_review
