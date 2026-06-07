@@ -1,6 +1,6 @@
 # The Seller Ethos
 
-gstack has the Builder Ethos. bizstack has the Seller Ethos.
+gstack has the Builder Ethos. miraiji has the Seller Ethos.
 
 Building is necessary but not sufficient. A product that nobody uses is a hobby project. There's nothing wrong with hobbies — but if you're trying to make a living, you need to sell.
 
@@ -30,7 +30,7 @@ Page views, GitHub stars, and Twitter impressions feel good but don't pay rent. 
 
 ### Solo-scale strategies only
 
-If a strategy requires a 5-person marketing team, it's not a strategy for you. Every tactic bizstack recommends must be executable by one person in the time between shipping features.
+If a strategy requires a 5-person marketing team, it's not a strategy for you. Every tactic miraiji recommends must be executable by one person in the time between shipping features.
 
 ---
 
@@ -46,12 +46,12 @@ If a strategy requires a 5-person marketing team, it's not a strategy for you. E
 
 ## The Pipeline Philosophy
 
-gstack's pipeline ends at `/ship`. bizstack's pipeline starts there.
+gstack's pipeline ends at `/ship`. miraiji's pipeline starts there.
 
 ```
 gstack:    Think → Plan → Build → Review → Test → Ship
                                                     ↓
-bizstack:                                      Launch → Content → Outreach → Measure → Grow → Feedback → Retro
+miraiji:                                      Launch → Content → Outreach → Measure → Grow → Feedback → Retro
 ```
 
 The code is the beginning, not the end.

@@ -22,4 +22,4 @@ Most indie developers either track nothing or track everything. /measure finds t
 - A/B test framework
 
 **Status:** Phase 2 — Coming soon.
-**Data path:** `~/.bizstack/growth/`
+**Data path:** `~/.miraiji/growth/`

@@ -1,14 +1,14 @@
-# bizstack Test Cases & Usage Scenarios
+# miraiji Test Cases & Usage Scenarios
 
 ## Introduction
 
-**For gstack users:** You already know the sprint cycle — Think → Plan → Build → Review → Test → Ship. bizstack fills the gap between `/plan-ceo-review` and `/plan-eng-review` (who are you building for? at what price? through what channel?) and the gap after `/ship` (how do you get it to users?). Run `/persona → /pricing → /gtm` before engineering, and `/launch → /outreach → /measure` after shipping.
+**For gstack users:** You already know the sprint cycle — Think → Plan → Build → Review → Test → Ship. miraiji fills the gap between `/plan-ceo-review` and `/plan-eng-review` (who are you building for? at what price? through what channel?) and the gap after `/ship` (how do you get it to users?). Run `/persona → /pricing → /gtm` before engineering, and `/launch → /outreach → /measure` after shipping.
 
-**For business beginners:** You can code but you've never sold software. bizstack walks you through the three decisions you must make before building: who's your user, what's your price, and how will you reach them. Each skill is an expert who asks you tough questions and won't let you skip the hard parts.
+**For business beginners:** You can code but you've never sold software. miraiji walks you through the three decisions you must make before building: who's your user, what's your price, and how will you reach them. Each skill is an expert who asks you tough questions and won't let you skip the hard parts.
 
 ---
 
-## Scenario 1: gstack User's First bizstack Session
+## Scenario 1: gstack User's First miraiji Session
 
 ### Context
 
@@ -17,8 +17,8 @@ Sho has been using gstack for months. He just finished `/office-hours` and `/pla
 ### Prerequisites
 
 - gstack installed and `/plan-ceo-review` completed
-- bizstack installed (`bash setup` done)
-- `~/.bizstack/` directory exists
+- miraiji installed (`bash setup` done)
+- `~/.miraiji/` directory exists
 
 ### Step 1: `/persona`
 
@@ -105,7 +105,7 @@ Sho has been using gstack for months. He just finished `/office-hours` and `/pla
 >
 > Let me synthesize Kenji's persona.
 
-**Output saved to `~/.bizstack/personas/persona-001.md`:**
+**Output saved to `~/.miraiji/personas/persona-001.md`:**
 
 ```markdown
 # Persona: Kenji
@@ -281,7 +281,7 @@ Validation:     Online check on first activation, then periodic (30 days)
 NO server infrastructure needed (local inference).
 ```
 
-**Output saved to `~/.bizstack/pricing/pricing-001.md`**
+**Output saved to `~/.miraiji/pricing/pricing-001.md`**
 
 > **CFO:** Pricing design saved. The engineering requirements section has your billing, auth, and limit specs for `/plan-eng-review`. Next step: `/gtm` to figure out how to reach those 79 paying users.
 
@@ -364,7 +364,7 @@ USERS 51-100 (Content + WoM — Week 7-12):
 12. Adobe Exchange listing SEO (keywords, screenshots) → ongoing organic
 ```
 
-**Output saved to `~/.bizstack/gtm/gtm-001.md`**
+**Output saved to `~/.miraiji/gtm/gtm-001.md`**
 
 > **CMO:** GTM strategy saved. You now have persona, pricing, and GTM. You're ready for gstack's `/plan-eng-review` — bring the pricing engineering requirements (free tier limits, license key validation, Gumroad/Paddle integration) into your tech design session.
 
@@ -374,17 +374,17 @@ USERS 51-100 (Content + WoM — Week 7-12):
 > /plan-eng-review
 ```
 
-The engineering review now has concrete inputs from bizstack:
+The engineering review now has concrete inputs from miraiji:
 
 - **From /pricing:** Free tier limits (30s clip, 720p, watermark), license key validation, Gumroad/Paddle billing, no server infrastructure needed
 - **From /persona:** Must be native Premiere plugin (CEP/UXP panel), local GPU inference, no round-trips
 - **From /gtm:** Adobe Exchange listing required (affects build/packaging), demo footage needed (affects test fixtures)
 
-Without bizstack, these engineering decisions would have been guesses.
+Without miraiji, these engineering decisions would have been guesses.
 
 ### Common Mistakes This Flow Corrects
 
-| Mistake | How bizstack corrects it |
+| Mistake | How miraiji corrects it |
 |---------|------------------------|
 | "I'll build the whole thing then figure out pricing" | /pricing forces price-before-code |
 | "My target is video editors" | /persona forces one specific person |
@@ -398,13 +398,13 @@ Without bizstack, these engineering decisions would have been guesses.
 
 ### Context
 
-Yuki is a web developer with 3 years of experience. She can build a full-stack app but has never sold software. She has a vague idea: "a tool for freelancers to manage invoices." She doesn't use gstack or lifestack — just heard about bizstack from a tweet and wants to try it.
+Yuki is a web developer with 3 years of experience. She can build a full-stack app but has never sold software. She has a vague idea: "a tool for freelancers to manage invoices." She doesn't use gstack or lifestack — just heard about miraiji from a tweet and wants to try it.
 
 ### Prerequisites
 
-- bizstack installed
+- miraiji installed
 - No prior gstack/lifestack data
-- No existing `~/.bizstack/` data
+- No existing `~/.miraiji/` data
 
 ### Step 1: `/persona`
 
@@ -490,7 +490,7 @@ Yuki is a web developer with 3 years of experience. She can build a full-stack a
 >
 > Product implication: **your onboarding needs to be "paste your client list, send your first invoice in 2 minutes."** If setup takes longer than one Excel copy-paste, Mika won't switch.
 
-**Output saved to `~/.bizstack/personas/persona-001.md`**
+**Output saved to `~/.miraiji/personas/persona-001.md`**
 
 ### Step 2: `/pricing`
 
@@ -515,7 +515,7 @@ FREE TIER: "Solo"
 ├── Unlimited invoices (don't limit the core action)
 ├── Up to 3 active clients
 ├── Manual payment tracking
-├── bizstack branding on invoice footer
+├── miraiji branding on invoice footer
 └── Goal: get Mika to send her first invoice and feel the magic
 
 PRO TIER: ¥980/mo (annual: ¥9,800/yr = ¥817/mo)
@@ -555,7 +555,7 @@ Ramen profit (¥200k/mo):      212 paying users
 
 > **CFO:** 3 users to break even. 212 for ramen profitability. The unit economics work, but 212 paying users means you need ~4,000-5,000 free users (at 4-5% conversion). That's achievable in the Japanese freelancer market, but it'll take 6-12 months.
 
-**Output saved to `~/.bizstack/pricing/pricing-001.md`**
+**Output saved to `~/.miraiji/pricing/pricing-001.md`**
 
 ### Step 3: `/gtm`
 
@@ -625,7 +625,7 @@ USERS 51-100 (Week 9-16):
 | DMs/outreach | 0.5h |
 | **Total** | **3.5h** |
 
-**Output saved to `~/.bizstack/gtm/gtm-001.md`**
+**Output saved to `~/.miraiji/gtm/gtm-001.md`**
 
 ### Next Steps
 
@@ -653,9 +653,9 @@ Sho built lifestack — a Claude Code skill pack for personal identity and self-
 
 ### Prerequisites
 
-- bizstack installed
+- miraiji installed
 - lifestack repo exists on GitHub
-- No prior bizstack data for this project
+- No prior miraiji data for this project
 
 ### Step 1: `/persona`
 
@@ -721,7 +721,7 @@ Sho built lifestack — a Claude Code skill pack for personal identity and self-
 > 2. **Setup friction**: Must install in under 2 minutes. One command.
 > 3. **Privacy**: Must be local-only. No telemetry, no cloud. This is actually a selling point.
 
-**Output saved to `~/.bizstack/personas/persona-001.md`**
+**Output saved to `~/.miraiji/personas/persona-001.md`**
 
 ### Step 2: `/pricing`
 
@@ -781,7 +781,7 @@ Contributing:    CONTRIBUTING.md must be excellent (community = moat)
 Telemetry:       None. Privacy is a feature.
 ```
 
-**Output saved to `~/.bizstack/pricing/pricing-001.md`**
+**Output saved to `~/.miraiji/pricing/pricing-001.md`**
 
 ### Step 3: `/gtm`
 
@@ -831,7 +831,7 @@ STARS 21-100 (Week 2-6):
 > - Stars ≠ users. Track actual installs (GitHub clone stats) and recurring usage.
 > - **"User" and "Contributor" are different personas.** Taro uses it; someone else contributes to it. You may need a separate persona for contributors later.
 
-**Output saved to `~/.bizstack/gtm/gtm-001.md`**
+**Output saved to `~/.miraiji/gtm/gtm-001.md`**
 
 ### Next Steps
 
@@ -859,7 +859,7 @@ Sho runs Cyrus Coffee Lab — hand-roasted specialty coffee sold on BASE (Japane
 
 ### Prerequisites
 
-- bizstack installed
+- miraiji installed
 - Existing BASE shop and Mercari listings
 - Dormant Instagram account
 
@@ -939,7 +939,7 @@ Sho runs Cyrus Coffee Lab — hand-roasted specialty coffee sold on BASE (Japane
 > - Sampler set (3× 50g bags) as entry product — low commitment, high discovery
 > - LINE or email for reorder reminders
 
-**Output saved to `~/.bizstack/personas/persona-001.md`**
+**Output saved to `~/.miraiji/personas/persona-001.md`**
 
 ### Step 2: `/pricing`
 
@@ -1004,7 +1004,7 @@ At 140 bags/mo with average margin ¥500/bag = ¥70,000 net profit
 (Physical product margins are slim — volume is everything)
 ```
 
-**Output saved to `~/.bizstack/pricing/pricing-001.md`**
+**Output saved to `~/.miraiji/pricing/pricing-001.md`**
 
 ### Step 3: `/gtm`
 
@@ -1063,7 +1063,7 @@ CUSTOMERS 31-100 (Month 3-6):
 > - **Unboxing experience = free marketing.** A handwritten thank-you note gets photographed and shared. Include a small card with brewing instructions and your Instagram handle.
 > - **Repeat customers are your lifeblood.** After first purchase, send a LINE message or email: "How did you like the beans? I'm roasting [next origin] this weekend." Personal touch at this scale.
 
-**Output saved to `~/.bizstack/gtm/gtm-001.md`**
+**Output saved to `~/.miraiji/gtm/gtm-001.md`**
 
 ### Physical Product Takeaways
 
@@ -1082,11 +1082,11 @@ CUSTOMERS 31-100 (Month 3-6):
 
 ### Context
 
-Sho has all three stacks installed: lifestack (personal growth), gstack (software development), and bizstack (business). He's starting a new project — **an AI-powered photo portfolio optimization service** — and wants to run the full pipeline from vision to launch.
+Sho has all three stacks installed: lifestack (personal growth), gstack (software development), and miraiji (business). He's starting a new project — **an AI-powered photo portfolio optimization service** — and wants to run the full pipeline from vision to launch.
 
 ### Prerequisites
 
-- lifestack, gstack, and bizstack all installed
+- lifestack, gstack, and miraiji all installed
 - Fresh project with no prior data
 
 ### The Full Pipeline
@@ -1095,20 +1095,20 @@ Sho has all three stacks installed: lifestack (personal growth), gstack (softwar
 PHASE 1: IDENTITY (lifestack)
 lifestack /vision
 
-PHASE 2: BUSINESS DESIGN (bizstack)
-bizstack /persona → /pricing → /gtm
+PHASE 2: BUSINESS DESIGN (miraiji)
+miraiji /persona → /pricing → /gtm
 
 PHASE 3: BUILD (gstack)
 gstack /office-hours → /plan-ceo-review → /plan-eng-review → Build → /ship
 
-PHASE 4: GO-TO-MARKET (bizstack)
-bizstack /launch → /outreach → /measure
+PHASE 4: GO-TO-MARKET (miraiji)
+miraiji /launch → /outreach → /measure
 
 PHASE 5: RETRO (all three)
-bizstack /biz-retro + gstack /retro + lifestack /retro
+miraiji /biz-retro + gstack /retro + lifestack /retro
 ```
 
-### Connection Point 1: lifestack `/vision` → bizstack `/persona`
+### Connection Point 1: lifestack `/vision` → miraiji `/persona`
 
 ```
 > /vision
@@ -1124,7 +1124,7 @@ building tools that help artists see their work through new eyes.
 Target Date: 2027-03-31
 ```
 
-**How this connects to bizstack:**
+**How this connects to miraiji:**
 
 When `/persona` runs, it can reference the vision:
 
@@ -1132,9 +1132,9 @@ When `/persona` runs, it can reference the vision:
 
 The vision acts as a **constraint**: /persona won't let you target "anyone who has photos" — it steers toward artists, photographers, and visual creators who align with your identity.
 
-### Connection Point 2: bizstack `/pricing` → gstack `/plan-eng-review`
+### Connection Point 2: miraiji `/pricing` → gstack `/plan-eng-review`
 
-**bizstack /pricing output (key section):**
+**miraiji /pricing output (key section):**
 
 ```markdown
 ## Tier Structure
@@ -1166,7 +1166,7 @@ The vision acts as a **constraint**: /persona won't let you target "anyone who h
 > /plan-eng-review
 ```
 
-> **Eng Manager:** I've found a bizstack pricing document at `~/.bizstack/pricing/pricing-001.md`. It specifies engineering requirements. Let me incorporate these into the technical design:
+> **Eng Manager:** I've found a miraiji pricing document at `~/.miraiji/pricing/pricing-001.md`. It specifies engineering requirements. Let me incorporate these into the technical design:
 >
 > **Auth system:** Required. Email/password + Google OAuth. Recommendation: use Supabase Auth (free tier covers initial users, handles both auth methods).
 >
@@ -1180,9 +1180,9 @@ The vision acts as a **constraint**: /persona won't let you target "anyone who h
 >
 > **Feature flags:** 3 flags tied to subscription tier. Store in user record, check at API layer.
 >
-> Without the bizstack pricing output, I would have asked you "do we need auth?" and "what are the limits?" Now I already know.
+> Without the miraiji pricing output, I would have asked you "do we need auth?" and "what are the limits?" Now I already know.
 
-### Connection Point 3: gstack `/ship` → bizstack `/launch`
+### Connection Point 3: gstack `/ship` → miraiji `/launch`
 
 **gstack /ship output:**
 
@@ -1191,13 +1191,13 @@ v0.1.0 released. Deployed to production.
 GitHub release created. Changelog updated.
 ```
 
-**How bizstack picks up:**
+**How miraiji picks up:**
 
 ```
 > /launch
 ```
 
-> **Launch Manager:** Your code is shipped (v0.1.0 — I can see the gstack release). Now let's get it in front of people. I'm reading your GTM strategy from `~/.bizstack/gtm/gtm-001.md`.
+> **Launch Manager:** Your code is shipped (v0.1.0 — I can see the gstack release). Now let's get it in front of people. I'm reading your GTM strategy from `~/.miraiji/gtm/gtm-001.md`.
 >
 > Your GTM says the top channels are: 1x.com community, Reddit r/photography, and X photo community. Let me build the launch playbook:
 >
@@ -1236,7 +1236,7 @@ At the end of each week, the three retros combine:
 | Ship: v0.1.0 released on schedule                                  |
 | Risk: Test coverage below 50% threshold                            |
 +--------------------------------------------------------------------+
-| BUSINESS (bizstack)                                                 |
+| BUSINESS (miraiji)                                                 |
 | Users: 0 → 12 (+12) | Revenue: ¥0 (free tier only so far)         |
 | Waitlist: 45 (+18) | Page views: 340 | Signups: 12 (3.5% CVR)    |
 | Top Channel: X/Twitter (8 signups) | DMs sent: 15 | Replies: 4    |
@@ -1291,14 +1291,14 @@ Without integration:
 - You don't know if you're winning (no /biz-retro)
 
 With integration:
-- **Identity** anchors what you build (lifestack → bizstack)
-- **Business design** shapes engineering decisions (bizstack → gstack)
-- **Shipping** triggers go-to-market (gstack → bizstack)
+- **Identity** anchors what you build (lifestack → miraiji)
+- **Business design** shapes engineering decisions (miraiji → gstack)
+- **Shipping** triggers go-to-market (gstack → miraiji)
 - **Retro** connects all three dimensions (all stacks → unified view)
 
 The three stacks answer three questions every week:
 - **lifestack:** "Am I becoming who I want to be?"
 - **gstack:** "Am I building well?"
-- **bizstack:** "Am I reaching the people who need this?"
+- **miraiji:** "Am I reaching the people who need this?"
 
 When all three are aligned, you're not just writing code — you're building a life.

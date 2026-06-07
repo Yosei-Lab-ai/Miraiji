@@ -23,4 +23,4 @@ Solo developers don't have time for a content treadmill. /content focuses on "wr
 - SEO keyword targets
 
 **Status:** Phase 2 — Coming soon.
-**Data path:** `~/.bizstack/content/`
+**Data path:** `~/.miraiji/content/`

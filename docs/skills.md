@@ -1,8 +1,8 @@
-# bizstack Skills — Deep Dive
+# miraiji Skills — Deep Dive
 
 ## Overview
 
-bizstack extends gstack's development pipeline with business design and go-to-market skills. Each skill adopts a specific expert persona and produces structured output that feeds into subsequent skills.
+miraiji extends gstack's development pipeline with business design and go-to-market skills. Each skill adopts a specific expert persona and produces structured output that feeds into subsequent skills.
 
 ```
 BEFORE BUILD:
@@ -117,7 +117,7 @@ The output is a persona document that subsequent skills read automatically:
 > - Workflow → Must be a native Premiere plugin, not a standalone tool
 > - Pricing → Consider one-time purchase or annual with heavy discount
 
-After all 5 questions, the researcher synthesizes the persona into a structured document and saves it to `~/.bizstack/personas/persona-001.md`.
+After all 5 questions, the researcher synthesizes the persona into a structured document and saves it to `~/.miraiji/personas/persona-001.md`.
 
 ### Output Example
 
@@ -299,7 +299,7 @@ FREE TIER LIMITS (→ /plan-eng-review input):
 - Auth: license key validation (Gumroad/Paddle) for Pro tier
 ```
 
-Output is saved to `~/.bizstack/pricing/pricing-001.md`.
+Output is saved to `~/.miraiji/pricing/pricing-001.md`.
 
 ---
 
@@ -578,7 +578,7 @@ The key insight: the fastest way to reduce churn is to respond to feedback withi
 |                    Product: Premiere Pro AI Plugin                          |
 +============================================================================+
 
-+--- ENGINEERING (gstack /retro) ----+--- BUSINESS (bizstack /biz-retro) ---+
++--- ENGINEERING (gstack /retro) ----+--- BUSINESS (miraiji /biz-retro) ---+
 |                                     |                                      |
 |  Commits:    47  (+12 vs last wk)   |  Users:     0 → 12  (+12)           |
 |  LOC added:  3.2k                   |  Revenue:   ¥0                      |
@@ -630,7 +630,7 @@ This unified view answers three questions every week:
 
 When all three are healthy, you're on track. When one drops, the retro surfaces it before it becomes a crisis.
 
-**Intended use:** Weekly ritual. Reads data from gstack /retro, bizstack metrics, and lifestack /retro when available.
+**Intended use:** Weekly ritual. Reads data from gstack /retro, miraiji metrics, and lifestack /retro when available.
 
 ---
 

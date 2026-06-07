@@ -27,4 +27,4 @@ Traditional business plans are 40-page documents written for investors. /bizplan
 - KPI definitions
 
 **Status:** Phase 2 — Coming soon.
-**Data path:** `~/.bizstack/plans/bizplan-[NNN].md`
+**Data path:** `~/.miraiji/plans/bizplan-[NNN].md`

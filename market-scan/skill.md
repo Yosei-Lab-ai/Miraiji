@@ -22,4 +22,4 @@ Most solo developers skip competitive analysis or do it superficially ("there's 
 - Market gaps and opportunities
 
 **Status:** Phase 2 — Coming soon.
-**Data path:** `~/.bizstack/market/scan-[NNN].md`
+**Data path:** `~/.miraiji/market/scan-[NNN].md`

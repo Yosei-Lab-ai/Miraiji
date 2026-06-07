@@ -22,4 +22,4 @@ Growth without a system is just random marketing. /grow provides the framework: 
 - Next-cycle recommendations
 
 **Status:** Phase 2 — Coming soon.
-**Data path:** `~/.bizstack/growth/experiments.json`
+**Data path:** `~/.miraiji/growth/experiments.json`

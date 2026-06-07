@@ -22,4 +22,4 @@ The first 100 users are the hardest and most important. They validate your produ
 - Ambassador/influencer shortlist
 
 **Status:** Phase 2 — Coming soon.
-**Data path:** `~/.bizstack/outreach/`
+**Data path:** `~/.miraiji/outreach/`

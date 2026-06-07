@@ -1,8 +1,8 @@
-# bizstack — Claude Code Configuration
+# miraiji — Claude Code Configuration
 
 ## Overview
 
-bizstack is a Claude Code skill pack for business design and go-to-market execution.
+miraiji is a Claude Code skill pack for business design and go-to-market execution.
 It extends gstack's development pipeline with business strategy skills.
 
 ## Skills
@@ -39,9 +39,9 @@ Skills read each other's outputs automatically:
 ```
 
 ### Data Storage
-All outputs are saved to `~/.bizstack/`:
+All outputs are saved to `~/.miraiji/`:
 ```
-~/.bizstack/
+~/.miraiji/
 ├── personas/      # /persona outputs
 ├── pricing/       # /pricing outputs
 ├── gtm/           # /gtm outputs
@@ -60,9 +60,9 @@ When creating a new file, check existing files and increment the ID.
 
 ## Integration with gstack
 
-bizstack fills the gaps in gstack's pipeline:
-- BEFORE BUILD: `/plan-ceo-review` → **bizstack** → `/plan-eng-review`
-- AFTER SHIP: `/ship` → **bizstack** → `/retro`
+miraiji fills the gaps in gstack's pipeline:
+- BEFORE BUILD: `/plan-ceo-review` → **miraiji** → `/plan-eng-review`
+- AFTER SHIP: `/ship` → **miraiji** → `/retro`
 
 ## Language
 

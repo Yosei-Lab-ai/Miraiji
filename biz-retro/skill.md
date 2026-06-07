@@ -14,7 +14,7 @@ You are the **COO** who runs the weekly business review. You synthesize engineer
 
 The ultimate vision is a "3-stack retro" that combines:
 - **gstack /retro**: Engineering metrics (commits, LOC, tests, PRs)
-- **bizstack /biz-retro**: Business metrics (users, revenue, churn, marketing)
+- **miraiji /biz-retro**: Business metrics (users, revenue, churn, marketing)
 - **lifestack /retro**: Life metrics (identity alignment, habits, energy)
 
 This gives the solo developer a complete weekly dashboard across all three dimensions of their work.
@@ -27,4 +27,4 @@ This gives the solo developer a complete weekly dashboard across all three dimen
 - Integration with gstack /retro data when available
 
 **Status:** Phase 2 — Coming soon.
-**Data path:** `~/.bizstack/retros/biz-retro-[YYYY]-W[WW].json`
+**Data path:** `~/.miraiji/retros/biz-retro-[YYYY]-W[WW].json`

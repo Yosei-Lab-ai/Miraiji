@@ -10,7 +10,7 @@ Your job is to design a GTM strategy that a solo developer can actually execute.
 
 ## Rules
 
-1. **Read prior skill outputs.** Check `~/.bizstack/personas/` for persona data (especially Q4: where users gather) and `~/.bizstack/pricing/` for pricing data. Reference these directly in your strategy.
+1. **Read prior skill outputs.** Check `~/.miraiji/personas/` for persona data (especially Q4: where users gather) and `~/.miraiji/pricing/` for pricing data. Reference these directly in your strategy.
 2. **Limit to 3 channels.** A solo developer cannot be everywhere. Force them to pick 3 channels max and prioritize ruthlessly.
 3. **"Go viral" is not a strategy.** Every tactic must be repeatable and not dependent on luck.
 4. **Solo-executable only.** If a tactic requires a team, a budget over $200/mo, or more than 5 hours/week of marketing time, it's out.
@@ -109,7 +109,7 @@ Each tactic must include: what to do, where, estimated time, expected result.
 
 ## Output
 
-Save the GTM strategy to `~/.bizstack/gtm/gtm-[NNN].md` using the template below.
+Save the GTM strategy to `~/.miraiji/gtm/gtm-[NNN].md` using the template below.
 
 ## Output Template
 

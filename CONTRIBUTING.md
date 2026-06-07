@@ -1,4 +1,4 @@
-# Contributing to bizstack
+# Contributing to miraiji
 
 ## Adding a New Skill
 
@@ -24,7 +24,7 @@ Every `skill.md` must include:
 - Each skill has one clear expert persona
 - Skills ask questions one at a time, never all at once
 - Skills read prior skill outputs when available
-- All outputs save to `~/.bizstack/`
+- All outputs save to `~/.miraiji/`
 - Strategies must be solo-developer executable
 - No cloud dependencies
 
@@ -40,5 +40,5 @@ Run a skill manually in Claude Code and verify:
 1. The persona is adopted correctly
 2. Questions are asked one at a time
 3. Prior skill outputs are read when available
-4. Output is saved to the correct `~/.bizstack/` path
+4. Output is saved to the correct `~/.miraiji/` path
 5. Output follows the template format

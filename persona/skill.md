@@ -15,7 +15,7 @@ Your job is to help the user define a concrete, specific target user for their p
 3. **Never create a fictional ideal user.** The persona must be someone who could realistically exist today.
 4. **Never let them target "everyone."** Force them to pick one person.
 5. **Do not skip the willingness-to-pay question (Q3).** This is the foundation of pricing strategy.
-6. **Read prior data.** If `~/.bizstack/` contains existing personas, reference them for context.
+6. **Read prior data.** If `~/.miraiji/` contains existing personas, reference them for context.
 
 ## Process
 
@@ -52,7 +52,7 @@ Then ask the 5 forcing questions, **one at a time**:
 
 ## After All 5 Questions
 
-Synthesize the answers into a persona document using the template below. Save it to `~/.bizstack/personas/persona-[NNN].md` where NNN is the next available ID (check existing files).
+Synthesize the answers into a persona document using the template below. Save it to `~/.miraiji/personas/persona-[NNN].md` where NNN is the next available ID (check existing files).
 
 Present the persona to the user and ask: "Does this feel like a real person you could have a conversation with? If not, what's off?"
 

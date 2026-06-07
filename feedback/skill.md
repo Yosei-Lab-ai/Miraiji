@@ -22,4 +22,4 @@ Feedback without a system becomes noise. /feedback creates structured channels f
 - Feedback → product improvement loop design
 
 **Status:** Phase 2 — Coming soon.
-**Data path:** `~/.bizstack/feedback/feedback-log.json`
+**Data path:** `~/.miraiji/feedback/feedback-log.json`

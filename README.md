@@ -1,6 +1,6 @@
-# bizstack
+# miraiji
 
-**gstack ships your code. bizstack ships it to users.**
+**gstack ships your code. miraiji ships it to users.**
 
 A Claude Code skill pack that fills the business gaps in your development pipeline. Built to extend [gstack](https://github.com/garrytan/gstack), not replace it.
 
@@ -21,7 +21,7 @@ You know *what* to build, but not *for whom*, *at what price*, or *through what 
 **Blind Spot 2: After Ship**
 Your code is released, but nobody knows it exists. You need launch strategy, marketing, user acquisition, and growth measurement.
 
-bizstack fills both gaps.
+miraiji fills both gaps.
 
 ---
 
@@ -41,10 +41,10 @@ AFTER SHIP (Go-to-Market — after release):
 
 ```bash
 # Clone
-git clone https://github.com/7da11/bizstack.git
+git clone https://github.com/7da11/miraiji.git
 
-# Install (symlinks skills to ~/.claude/skills/bizstack/)
-cd bizstack && bash setup
+# Install (symlinks skills to ~/.claude/skills/miraiji/)
+cd miraiji && bash setup
 ```
 
 After installation, use any skill in Claude Code:
@@ -90,12 +90,12 @@ After installation, use any skill in Claude Code:
 
 ## The Three Stacks
 
-bizstack is designed to coexist with gstack and lifestack:
+miraiji is designed to coexist with gstack and lifestack:
 
 ```
 ~/.claude/skills/
 ├── gstack/       # Software development (build it)
-├── bizstack/     # Business & marketing (ship it to users)
+├── miraiji/     # Business & marketing (ship it to users)
 └── lifestack/    # Personal growth (become who you are)
 ```
 
@@ -103,7 +103,7 @@ bizstack is designed to coexist with gstack and lifestack:
 |-------|--------|---------------|
 | lifestack | Self | "Who am I becoming?" |
 | gstack | Product | "What do I build?" |
-| bizstack | Business | "How do I deliver it?" |
+| miraiji | Business | "How do I deliver it?" |
 
 ---
 
@@ -112,7 +112,7 @@ bizstack is designed to coexist with gstack and lifestack:
 All data is stored locally. No cloud, no telemetry.
 
 ```
-~/.bizstack/
+~/.miraiji/
 ├── personas/      # Target user personas
 ├── pricing/       # Pricing design documents
 ├── gtm/           # Go-to-market strategies
@@ -129,7 +129,7 @@ All data is stored locally. No cloud, no telemetry.
 
 ## Privacy
 
-bizstack stores everything in `~/.bizstack/` on your local machine. Nothing is uploaded, tracked, or shared. Your business strategy stays yours.
+miraiji stores everything in `~/.miraiji/` on your local machine. Nothing is uploaded, tracked, or shared. Your business strategy stays yours.
 
 ---
 

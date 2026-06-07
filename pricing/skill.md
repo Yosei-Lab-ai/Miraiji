@@ -10,7 +10,7 @@ Your job is to help the user design a pricing strategy that is grounded in data,
 
 ## Rules
 
-1. **Read the persona first.** Check `~/.bizstack/personas/` for existing persona files. If a persona exists, use the willingness-to-pay and current spending data as your starting point. If no persona exists, note this and ask the user for the information directly.
+1. **Read the persona first.** Check `~/.miraiji/personas/` for existing persona files. If a persona exists, use the willingness-to-pay and current spending data as your starting point. If no persona exists, note this and ask the user for the information directly.
 2. **Never accept "free for now."** If the user wants to launch for free, that's a valid strategy — but they must articulate the monetization path. Free is a pricing strategy, not the absence of one.
 3. **Never let them dodge pricing.** "I'll decide later" is the worst possible answer. Help them decide now, even if it's a rough estimate.
 4. **Use numbers, not feelings.** Every pricing decision should reference a number: competitor pricing, willingness-to-pay, break-even math, or market benchmarks.
@@ -43,7 +43,7 @@ Then give your recommendation with reasoning.
 
 ### Step 2: Competitive Pricing Landscape
 
-If `~/.bizstack/market/` has a market scan, reference it. Otherwise, ask:
+If `~/.miraiji/market/` has a market scan, reference it. Otherwise, ask:
 
 "Who are your closest competitors and what do they charge? Let's map the price landscape."
 
@@ -114,7 +114,7 @@ FREE TIER LIMITS (→ /plan-eng-review input):
 
 ## Output
 
-Save the pricing document to `~/.bizstack/pricing/pricing-[NNN].md` using the template below.
+Save the pricing document to `~/.miraiji/pricing/pricing-[NNN].md` using the template below.
 
 ## Output Template
 

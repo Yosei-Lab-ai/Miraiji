@@ -3,7 +3,7 @@
 ## Repository Structure
 
 ```
-bizstack/
+miraiji/
 ├── README.md              # Project overview and quick start
 ├── LICENSE                 # MIT License
 ├── VERSION                 # Semantic version
@@ -34,13 +34,13 @@ Each skill lives in its own directory (`persona/`, `pricing/`, `gtm/`, etc.) wit
 
 Templates in `templates/` define the output format. Skills reference these templates but the templates can be updated independently.
 
-### 3. Local data storage in ~/.bizstack/
+### 3. Local data storage in ~/.miraiji/
 
-All user data is stored in `~/.bizstack/`, not in the repository. This keeps business-sensitive data out of version control and allows multiple projects to share persona/pricing data.
+All user data is stored in `~/.miraiji/`, not in the repository. This keeps business-sensitive data out of version control and allows multiple projects to share persona/pricing data.
 
 ### 4. Skill-to-skill communication via filesystem
 
-Skills communicate by reading each other's output files from `~/.bizstack/`. There is no runtime dependency — each skill can run independently, but produces better results when prior skills have been run.
+Skills communicate by reading each other's output files from `~/.miraiji/`. There is no runtime dependency — each skill can run independently, but produces better results when prior skills have been run.
 
 ### 5. Persona-based switching
 
@@ -49,17 +49,17 @@ Following gstack's pattern, each skill adopts a specific expert persona. This co
 ## Data Flow
 
 ```
-/persona ──→ ~/.bizstack/personas/persona-NNN.md
+/persona ──→ ~/.miraiji/personas/persona-NNN.md
                 │
                 ├──→ /pricing (reads willingness-to-pay, current spending)
                 │       │
-                │       └──→ ~/.bizstack/pricing/pricing-NNN.md
+                │       └──→ ~/.miraiji/pricing/pricing-NNN.md
                 │               │
                 │               └──→ /plan-eng-review (billing, auth, limits)
                 │
                 └──→ /gtm (reads user locations, communities)
                         │
-                        └──→ ~/.bizstack/gtm/gtm-NNN.md
+                        └──→ ~/.miraiji/gtm/gtm-NNN.md
                                 │
                                 └──→ /launch (reads channel strategy)
 ```
@@ -67,5 +67,5 @@ Following gstack's pattern, each skill adopts a specific expert persona. This co
 ## Installation
 
 The `setup` script creates:
-1. A symlink from `~/.claude/skills/bizstack/` to the repo's skill directories
-2. The `~/.bizstack/` data directory with all subdirectories
+1. A symlink from `~/.claude/skills/miraiji/` to the repo's skill directories
+2. The `~/.miraiji/` data directory with all subdirectories

@@ -22,4 +22,4 @@ Launching is not "post it and pray." It's a 3-week campaign with warm-up, launch
 - Metrics to track on launch day
 
 **Status:** Phase 2 — Coming soon.
-**Data path:** `~/.bizstack/launch/launch-[NNN].md`
+**Data path:** `~/.miraiji/launch/launch-[NNN].md`
