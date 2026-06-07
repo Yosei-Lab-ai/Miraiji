@@ -1,6 +1,6 @@
-# miraiji
+# Miraiji
 
-**gstack ships your code. miraiji ships it to users.**
+**gstack ships your code. Miraiji ships it to users.**
 
 A Claude Code skill pack that fills the business gaps in your development pipeline. Built to extend [gstack](https://github.com/garrytan/gstack), not replace it.
 
@@ -21,7 +21,7 @@ You know *what* to build, but not *for whom*, *at what price*, or *through what 
 **Blind Spot 2: After Ship**
 Your code is released, but nobody knows it exists. You need launch strategy, marketing, user acquisition, and growth measurement.
 
-miraiji fills both gaps.
+Miraiji fills both gaps.
 
 ---
 
@@ -41,10 +41,10 @@ AFTER SHIP (Go-to-Market — after release):
 
 ```bash
 # Clone
-git clone https://github.com/7da11/miraiji.git
+git clone https://github.com/Yosei-Lab-ai/Miraiji.git
 
 # Install (symlinks skills to ~/.claude/skills/miraiji/)
-cd miraiji && bash setup
+cd Miraiji && bash setup
 ```
 
 After installation, use any skill in Claude Code:
@@ -90,18 +90,18 @@ After installation, use any skill in Claude Code:
 
 ## The Three Stacks
 
-miraiji is designed to coexist with gstack and lifestack:
+Miraiji is designed to coexist with gstack and miragoe:
 
 ```
 ~/.claude/skills/
 ├── gstack/       # Software development (build it)
-├── miraiji/     # Business & marketing (ship it to users)
-└── lifestack/    # Personal growth (become who you are)
+├── miraiji/      # Business & marketing (ship it to users)
+└── miragoe/      # Personal growth (become who you are)
 ```
 
 | Stack | Domain | Core Question |
 |-------|--------|---------------|
-| lifestack | Self | "Who am I becoming?" |
+| miragoe | Self | "Who am I becoming?" |
 | gstack | Product | "What do I build?" |
 | miraiji | Business | "How do I deliver it?" |
 
@@ -129,10 +129,18 @@ All data is stored locally. No cloud, no telemetry.
 
 ## Privacy
 
-miraiji stores everything in `~/.miraiji/` on your local machine. Nothing is uploaded, tracked, or shared. Your business strategy stays yours.
+Miraiji stores everything in `~/.miraiji/` on your local machine. Nothing is uploaded, tracked, or shared. Your business strategy stays yours.
+
+---
+
+## 💖 Support
+
+Miraiji is free and MIT-licensed. If it helps you ship what you build,
+consider [sponsoring its development](https://github.com/sponsors/Yosei-Lab-ai) —
+sponsorship funds new skills, better docs, and faster issue turnaround.
 
 ---
 
 ## License
 
-MIT — Copyright (c) 2026 Sho
+MIT — Copyright (c) 2026 Yosei Lab
