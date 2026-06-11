@@ -11,6 +11,7 @@ It extends gstack's development pipeline with business strategy skills.
 - `/persona` — Target user definition (UX Researcher persona)
 - `/pricing` — Price structure design (CFO persona)
 - `/gtm` — Go-to-market strategy (CMO persona)
+- `/copy` — Landing page & sales copy, Caples-school direct response (Direct Response Copywriter persona)
 
 ### Phase 2 (Stubs)
 - `/market-scan` — Competitive analysis
@@ -36,6 +37,8 @@ Skills read each other's outputs automatically:
 /persona → /gtm (reads user locations from persona)
 /pricing → /plan-eng-review (passes billing & limit requirements)
 /gtm → /launch (passes channel strategy)
+/persona + /pricing + /gtm → /copy (reader, offer, positioning inputs)
+/copy → /launch, /content, /outreach (headlines & messaging reuse)
 ```
 
 ### Data Storage
@@ -45,6 +48,7 @@ All outputs are saved to `~/.miraiji/`:
 ├── personas/      # /persona outputs
 ├── pricing/       # /pricing outputs
 ├── gtm/           # /gtm outputs
+├── copy/          # /copy outputs
 ├── market/        # /market-scan outputs
 ├── plans/         # /bizplan outputs
 ├── launch/        # /launch outputs

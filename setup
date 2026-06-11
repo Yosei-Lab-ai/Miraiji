@@ -24,7 +24,7 @@ echo "  Done."
 
 # Create data directories
 echo "→ Creating data directory at $DATA_DIR"
-mkdir -p "$DATA_DIR"/{personas,pricing,gtm,market,plans,launch/materials,content,growth,feedback,retros}
+mkdir -p "$DATA_DIR"/{personas,pricing,gtm,copy,market,plans,launch/materials,content,growth,feedback,retros}
 echo "  Done."
 
 echo ""
@@ -34,5 +34,6 @@ echo "Available skills:"
 echo "  /persona  — Define your target user"
 echo "  /pricing  — Design your pricing model"
 echo "  /gtm      — Plan your go-to-market strategy"
+echo "  /copy     — Write landing page & sales copy that converts"
 echo ""
 echo "Data will be stored in $DATA_DIR"

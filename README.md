@@ -66,6 +66,7 @@ After installation, use any skill in Claude Code:
 | `/persona` | UX Researcher | Defines your target user through 5 forcing questions. Outputs a concrete persona document. |
 | `/pricing` | CFO | Designs your pricing model, tier structure, and break-even analysis. Outputs engineering requirements for billing & limits. |
 | `/gtm` | CMO | Creates your go-to-market strategy: positioning, messaging, channel strategy, and first-100-users plan. |
+| `/copy` | Direct Response Copywriter | Writes landing page and sales copy that converts — Caples-school direct response method with ranked A/B headline sets and an acceptance scorecard. |
 
 ### Phase 2 — Go-to-Market (Coming Soon)
 
@@ -116,6 +117,7 @@ All data is stored locally. No cloud, no telemetry.
 ├── personas/      # Target user personas
 ├── pricing/       # Pricing design documents
 ├── gtm/           # Go-to-market strategies
+├── copy/          # Landing page & sales copy
 ├── market/        # Competitive analysis
 ├── plans/         # Business plans
 ├── launch/        # Launch playbooks & materials
