@@ -1,0 +1,23 @@
+name: pre-commit
+
+# OreInc Code-First Defense 構造ガード4種を CI でも走らせる (oreInc-governance#247)。
+# ローカル `pre-commit install` を省いた clone/拠点でも、PR で構造ガードを物理担保する。
+# 正典: oreInc-governance/oreInc-governance/scripts/pre-commit/
+
+on:
+  pull_request:
+  push:
+    branches: [master, main]
+
+permissions:
+  contents: read
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: pre-commit/[email protected]
