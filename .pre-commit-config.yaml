@@ -1,0 +1,41 @@
+# OreInc Code-First Defense 構造ガード (Phase2 S5 / oreInc-governance#247 横展開).
+#
+# 正典: oreInc-governance/oreInc-governance/scripts/pre-commit/
+#   本 repo の scripts/pre-commit/ は vendor コピー (byte-identical)。
+#   ガード本体を更新する時は正典側を直し、各 repo へ再配布する (entry の
+#   oreInc-governance/ プレフィックスを除いた scripts/pre-commit/ を指す点のみ差分)。
+#
+# セットアップ (clone 後・マシンごとに 1 回):
+#   pip install pre-commit
+#   pre-commit install            # git hook を登録 (以後 commit 時に自動実行)
+#   pre-commit run --all-files    # 単発フルスキャン
+#
+# division-specific hook を足す時は、この 4 ガードは触らず別の repo: local
+# ブロックに分けて追記する (正典 4 ガードは governance が所有)。
+repos:
+  - repo: local
+    hooks:
+      - id: structure-guard
+        name: Code-First Defense 構造ガード (abs path / 停滞コピー参照)
+        entry: scripts/pre-commit/check-structure-guard.py
+        language: script
+        files: \.(py|sh|bash|zsh|js|mjs|cjs|ts|tsx|ya?ml|toml|cfg|ini|bat|ps1)$
+        pass_filenames: true
+      - id: no-nested-git
+        name: nested .git 禁止 (repo内repo・submodule/worktree除く)
+        entry: scripts/pre-commit/check-no-nested-git.sh
+        language: script
+        pass_filenames: false
+        always_run: true
+      - id: index-exists
+        name: INDEX.md(所在地図) を repo ルートに必須化
+        entry: scripts/pre-commit/check-index-exists.sh
+        language: script
+        pass_filenames: false
+        always_run: true
+      - id: index-coverage
+        name: 地図ドリフト防止 (新トップレベルdir は INDEX.md 記載必須)
+        entry: scripts/pre-commit/check-index-coverage.sh
+        language: script
+        pass_filenames: false
+        always_run: true
