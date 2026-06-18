@@ -39,3 +39,148 @@ repos:
         language: script
         pass_filenames: false
         always_run: true
+
+  # ===== #84 canonical セキュリティ hooks (oreInc-governance#84・追記配布 #247) =====
+  # 既存 S5 構造ガードは不可侵。下記は別 repo ブロックとして追記のみ。
+  # ----- Common: standard pre-commit hooks -----
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ['--maxkb=51200']  # 50 MB; binaries > 50 MB likely shouldn't be committed
+      - id: check-yaml
+        # FANZA-auto等で複雑 yaml がある場合は exclude を division 側で追加
+      - id: check-json
+      - id: check-merge-conflict
+      - id: forbid-new-submodules
+        # nested repo 禁忌 (memory feedback_nested_repo_taboo.md)
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  # ----- Common: secret detection -----
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: |
+          (?x)^(
+            .*\.lock\.json|
+            package-lock\.json|
+            poetry\.lock|
+            uv\.lock|
+            yarn\.lock|
+            .*\.min\.js|
+            .*\.min\.css
+          )$
+
+  # ----- Common: forbidden file basenames (local hook) -----
+  - repo: local
+    hooks:
+      - id: forbid-env-files
+        name: Forbid .env / .env.local committing (oreInc-governance#54)
+        entry: |
+          bash -c '
+            for f in "$@"; do
+              base=$(basename "$f")
+              case "$base" in
+                .env|.env.local|.env.production|.env.development|.env.*)
+                  if [ "$base" != ".env.example" ] && [ "$base" != ".env.template" ]; then
+                    echo "ERROR: $f is forbidden (env leak prevention). Use .env.example instead."
+                    exit 1
+                  fi ;;
+              esac
+            done
+          ' --
+        language: system
+        types: [file]
+        pass_filenames: true
+
+      - id: forbid-mcp-json
+        name: Forbid .mcp.json committing (Notion API token leak)
+        entry: |
+          bash -c '
+            for f in "$@"; do
+              base=$(basename "$f")
+              if [ "$base" = ".mcp.json" ]; then
+                echo "ERROR: $f is forbidden (Notion API token leak prevention)"
+                exit 1
+              fi
+            done
+          ' --
+        language: system
+        types: [json]
+        pass_filenames: true
+
+      - id: forbid-jwt-in-env-example
+        name: Forbid actual JWT (eyJ...) in .env.example/.env.template/.env.sample
+        # 2026-05-17 #95 教訓: data-pipeline/.env.example に Supabase JWT 本物が
+        # 混入していた重大事件の物理止め。template ファイルは placeholder のみ。
+        entry: |
+          bash -c '
+            for f in "$@"; do
+              base=$(basename "$f")
+              case "$base" in
+                .env.example|.env.template|.env.sample|.env.example.*|.env.template.*)
+                  if grep -qE "=[[:space:]]*[\"]?eyJ[A-Za-z0-9_-]{10,}\.eyJ[A-Za-z0-9_-]{10,}\." "$f" 2>/dev/null; then
+                    echo "ERROR: $f contains actual JWT (eyJ.eyJ. pattern)."
+                    echo "       Template files MUST use placeholders like:"
+                    echo "         SUPABASE_KEY=your_anon_key_here"
+                    echo "       Rotate the leaked JWT at the provider dashboard immediately."
+                    echo "       Origin: oreInc-governance#95 (2026-05-17)"
+                    exit 1
+                  fi ;;
+              esac
+            done
+          ' --
+        language: system
+        types: [file]
+        pass_filenames: true
+
+      - id: forbid-debug-and-oauth-logs
+        name: Forbid committing debug/oauth/token logs (potential secret leak)
+        # 2026-05-17 #95 教訓: sns/.x_oauth_debug.log に X CLIENT_ID/SECRET の
+        # Basic auth header が記録されていた事件の物理止め。
+        entry: |
+          bash -c '
+            for f in "$@"; do
+              base=$(basename "$f")
+              case "$base" in
+                *_debug.log|*-debug.log|.*_debug.log|.*-debug.log|\
+                *_oauth*.log|*-oauth*.log|.*_oauth*.log|.*-oauth*.log|\
+                *_token*.log|*-token*.log|*_secret*.log|*-secret*.log|\
+                *_auth*.log|*-auth*.log)
+                  echo "ERROR: $f is a debug/oauth/auth log — must NEVER be committed."
+                  echo "       Such logs commonly contain credentials, tokens, OAuth codes, etc."
+                  echo "       Add to .gitignore: *_debug.log, *_oauth*.log, *_token*.log"
+                  echo "       Origin: oreInc-governance#95 (2026-05-17)"
+                  exit 1 ;;
+              esac
+            done
+          ' --
+        language: system
+        types: [file]
+        pass_filenames: true
+
+      - id: forbid-large-binaries-outside-assets
+        name: Forbid >5MB binary outside assets/media/static/public dirs
+        entry: |
+          bash -c '
+            for f in "$@"; do
+              # skip whitelisted dirs
+              case "$f" in
+                */assets/*|*/media/*|*/static/*|*/public/*|*/sns-media/*|*/sns/sns-posts/*) continue ;;
+              esac
+              if [ -f "$f" ]; then
+                size=$(wc -c < "$f")
+                if [ "$size" -gt 5242880 ]; then
+                  echo "ERROR: $f is $size bytes (> 5 MB) outside whitelisted asset dirs. Move to assets/ or use Git LFS."
+                  exit 1
+                fi
+              fi
+            done
+          ' --
+        language: system
+        types: [binary]
+        pass_filenames: true
