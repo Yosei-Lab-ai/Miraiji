@@ -2,6 +2,9 @@
 
 **Created:** [date]
 **Persona:** [Link to persona file if exists]
+**Status:** Hypothesis
+**Evidence status:** [Observed | Inferred | Unknown]
+**External action authorized:** No
 
 ## Pricing Model
 **Selected:** [Model name]
@@ -44,3 +47,21 @@
 ## Key Risks
 - [Risk 1 and mitigation]
 - [Risk 2 and mitigation]
+
+## Bounded Hypothesis
+- **Specific situation:** [Buyer context and purchase trigger]
+- **Problem hypothesis:** [Current economic or workflow cost]
+- **Promise under test:** [Bounded paid outcome]
+- **Proof status:** [Evidence and sources]
+- **Riskiest assumption:** [One falsifiable pricing assumption]
+
+## Minimal Test
+- **Method:** [Smallest test]
+- **Audience and sample:** [Exact target and sample size]
+- **Timebox:** [Maximum duration]
+- **Budget cap:** [Approved cap or zero]
+- **Pass:** [Threshold]
+- **Fail:** [Threshold]
+- **Inconclusive:** [Missing-data condition]
+- **Stop condition:** [When to stop]
+- **Next decision:** [Adopt | Revise | Reject | Gather evidence]

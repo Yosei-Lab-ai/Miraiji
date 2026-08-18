@@ -3,6 +3,9 @@
 **Created:** [date]
 **Persona:** [Link to persona file if exists]
 **Pricing:** [Link to pricing file if exists]
+**Status:** Hypothesis
+**Evidence status:** [Observed | Inferred | Unknown]
+**External action authorized:** No
 
 ## Positioning
 For **[target]** who **[need]**, **[product]** is a **[category]** that **[benefit]**.
@@ -69,3 +72,21 @@ Unlike **[alternative]**, we **[differentiator]**.
 | Community engagement | [X]h |
 | DMs/outreach | [X]h |
 | **Total** | **[X]h** |
+
+## Bounded Hypothesis
+- **Specific situation:** [Target user, context, and discovery moment]
+- **Problem hypothesis:** [Why the current discovery route fails]
+- **Promise under test:** [Bounded reason to engage]
+- **Proof status:** [Evidence and sources]
+- **Riskiest assumption:** [One falsifiable channel/message assumption]
+
+## Minimal Test
+- **Method:** [Smallest test]
+- **Audience and sample:** [Exact target and sample size]
+- **Timebox:** [Maximum duration]
+- **Budget cap:** [Approved cap or zero]
+- **Pass:** [Threshold]
+- **Fail:** [Threshold]
+- **Inconclusive:** [Missing-data condition]
+- **Stop condition:** [When to stop]
+- **Next decision:** [Adopt | Revise | Reject | Gather evidence]

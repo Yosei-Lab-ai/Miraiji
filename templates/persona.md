@@ -2,6 +2,9 @@
 
 **Created:** [date]
 **Product:** [product name]
+**Status:** Hypothesis
+**Evidence status:** [Observed | Inferred | Unknown]
+**External action authorized:** No
 
 ## Profile
 - **Name:** [Realistic first name]
@@ -37,3 +40,22 @@
 - **Primary barrier:** [The #1 reason they wouldn't switch]
 - **Secondary barriers:** [Other concerns]
 - **What would overcome them:** [What we need to do/prove]
+
+## Bounded Hypothesis
+- **Specific situation:** [Who, context, and trigger]
+- **Problem hypothesis:** [Current cost/friction and workaround]
+- **Promise under test:** [Bounded change]
+- **Proof status:** [Evidence and sources]
+- **Contradicting evidence:** [What does not fit]
+- **Riskiest assumption:** [One falsifiable assumption]
+
+## Minimal Test
+- **Method:** [Smallest test]
+- **Audience and sample:** [Exact target and sample size]
+- **Timebox:** [Maximum duration]
+- **Budget cap:** [Approved cap or zero]
+- **Pass:** [Threshold]
+- **Fail:** [Threshold]
+- **Inconclusive:** [Missing-data condition]
+- **Stop condition:** [When to stop]
+- **Next decision:** [Adopt | Revise | Reject | Gather evidence]

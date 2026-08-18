@@ -43,7 +43,7 @@ AFTER SHIP (Go-to-Market — after release):
 # Clone
 git clone https://github.com/Yosei-Lab-ai/Miraiji.git
 
-# Install (symlinks skills to ~/.claude/skills/miraiji/)
+# Install (links each command at ~/.claude/skills/<skill>)
 cd Miraiji && bash setup
 ```
 
@@ -130,6 +130,13 @@ All data is stored locally. No cloud, no telemetry.
 ## Privacy
 
 Miraiji stores everything in `~/.miraiji/` on your local machine. Nothing is uploaded, tracked, or shared. Your business strategy stays yours.
+
+## Evidence-gated decisions
+
+`/persona`, `/pricing`, and `/gtm` now include a bounded hypothesis and minimal
+test contract. Each output names its evidence status, pass/fail/inconclusive metrics,
+stop condition, and approval boundary. Planning never authorizes external action.
+See [`docs/hypothesis-contract.md`](docs/hypothesis-contract.md).
 
 ---
 

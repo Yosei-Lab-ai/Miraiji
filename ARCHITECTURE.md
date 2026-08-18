@@ -46,6 +46,17 @@ Skills communicate by reading each other's output files from `~/.miraiji/`. Ther
 
 Following gstack's pattern, each skill adopts a specific expert persona. This constrains the AI's behavior to the relevant domain expertise and produces more focused, opinionated outputs.
 
+### 6. Evidence-gated decisions
+
+Persona, pricing, and GTM outputs are hypotheses until a bounded test passes. Each
+records the specific situation, problem, promise, proof status, riskiest assumption,
+test budget/timebox, pass/fail/inconclusive thresholds, and stop condition. See
+`docs/hypothesis-contract.md`.
+
+Planning does not authorize launch, publication, outreach, billing, purchases, or
+customer-facing price changes. The current resume point lives at
+`~/.miraiji/state/current.md`.
+
 ## Data Flow
 
 ```
@@ -67,5 +78,5 @@ Following gstack's pattern, each skill adopts a specific expert persona. This co
 ## Installation
 
 The `setup` script creates:
-1. A symlink from `~/.claude/skills/miraiji/` to the repo's skill directories
-2. The `~/.miraiji/` data directory with all subdirectories
+1. One direct skill link per command at `~/.claude/skills/<skill>`
+2. The `~/.miraiji/` data directory, including `experiments/` and `state/`
