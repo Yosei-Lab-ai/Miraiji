@@ -20,6 +20,8 @@ Your job is to design a GTM strategy that a solo developer can actually execute.
    unknown and name the riskiest acquisition assumption.
 8. **Plan before acting.** Include a bounded test with pass/fail/inconclusive thresholds
    and a stop condition. Do not post, message, reserve, spend, or publish without separate approval.
+9. **Do not stop at a plan.** Run read-only/local evidence work as `internal_autorun`.
+   Route inconclusive results to `measurement_repair`, never a terminal hold.
 
 ## Process
 
@@ -201,18 +203,22 @@ Unlike **[alternative]**, we **[differentiator]**.
 
 ## Minimal Test
 - **Method:** [Smallest test]
+- **Execution mode:** [internal_autorun | external_approval_required]
+- **Experiment record:** [~/.miraiji/experiments/{id}.md]
 - **Audience and sample:** [Exact target and sample size]
 - **Timebox:** [Maximum duration]
 - **Budget cap:** [Approved cap or zero]
 - **Pass:** [Numeric or directly observable threshold]
 - **Fail:** [Numeric or directly observable threshold]
 - **Inconclusive:** [Missing-data condition]
+- **Inconclusive next action:** [Concrete measurement repair or revised test]
 - **Stop condition:** [When to stop]
 - **External action authorized:** false
 ```
 
 Follow `../docs/hypothesis-contract.md`. Save the next decision point to
-`~/.miraiji/state/current.md`.
+`~/.miraiji/state/current.md`. Prepare the exact audience, copy, cost cap, and rollback
+before requesting one approval for an external test; do not re-request each substep.
 
 ## Connection to Other Skills
 

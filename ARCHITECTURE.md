@@ -57,6 +57,11 @@ Planning does not authorize launch, publication, outreach, billing, purchases, o
 customer-facing price changes. The current resume point lives at
 `~/.miraiji/state/current.md`.
 
+Read-only/local evidence collection uses `internal_autorun` and proceeds in the same
+session. External actions use `external_approval_required` and need one approval for the
+prepared action. Inconclusive results route to `measurement_repair` or a revised test,
+not a terminal hold. Executable plans and results live under `~/.miraiji/experiments/`.
+
 ## Data Flow
 
 ```

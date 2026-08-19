@@ -19,6 +19,8 @@ Your job is to help the user design a pricing strategy that is grounded in data,
    evidence from the proposed model and price point.
 7. **Require a bounded test.** Include a budget/timebox, numeric pass/fail thresholds,
    an inconclusive state, and a stop condition. A test plan never authorizes a live price change.
+8. **Execute safe evidence work.** Read-only/local tests use `internal_autorun`; an
+   inconclusive result routes to `measurement_repair`, not hold.
 
 ## Process
 
@@ -179,18 +181,22 @@ Save the pricing document to `~/.miraiji/pricing/pricing-[NNN].md` using the tem
 
 ## Minimal Test
 - **Method:** [Smallest test that does not require an unapproved live price change]
+- **Execution mode:** [internal_autorun | external_approval_required]
+- **Experiment record:** [~/.miraiji/experiments/{id}.md]
 - **Audience and sample:** [Exact target and sample size]
 - **Timebox:** [Maximum duration]
 - **Budget cap:** [Approved cap or zero]
 - **Pass:** [Numeric or directly observable threshold]
 - **Fail:** [Numeric or directly observable threshold]
 - **Inconclusive:** [Missing-data condition]
+- **Inconclusive next action:** [Concrete measurement repair or revised test]
 - **Stop condition:** [When to stop]
 - **External action authorized:** false
 ```
 
 Follow `../docs/hypothesis-contract.md`. Save the next decision point to
-`~/.miraiji/state/current.md`.
+`~/.miraiji/state/current.md`. Run `internal_autorun` evidence collection in the same
+session when inputs exist; request one exact approval only for an external action.
 
 ## Connection to Other Skills
 

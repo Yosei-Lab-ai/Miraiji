@@ -64,6 +64,9 @@ Then complete the bounded hypothesis contract in `../docs/hypothesis-contract.md
 Identify the riskiest assumption, design the smallest test that could reject it, and
 record the result thresholds. This is a test plan only; do not contact anyone, publish,
 spend, or change a customer-facing surface without separate approval.
+If the test only reads authorized data or evaluates local artifacts, mark it
+`internal_autorun`, save an experiment record, and continue it in the same session.
+If evidence is inconclusive, route to `measurement_repair` or a revised test instead of hold.
 
 ## Output Template
 
@@ -118,12 +121,15 @@ spend, or change a customer-facing surface without separate approval.
 
 ## Minimal Test
 - **Method:** [Smallest test]
+- **Execution mode:** [internal_autorun | external_approval_required]
+- **Experiment record:** [~/.miraiji/experiments/{id}.md]
 - **Audience and sample:** [Exact target and sample size]
 - **Timebox:** [Maximum duration]
 - **Budget cap:** [Approved cap or zero]
 - **Pass:** [Threshold]
 - **Fail:** [Threshold]
 - **Inconclusive:** [Missing-data condition]
+- **Inconclusive next action:** [Concrete measurement repair or revised test]
 - **Stop condition:** [When to stop]
 - **External action authorized:** false
 ```
