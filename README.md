@@ -43,7 +43,7 @@ AFTER SHIP (Go-to-Market — after release):
 # Clone
 git clone https://github.com/Yosei-Lab-ai/Miraiji.git
 
-# Install (symlinks skills to ~/.claude/skills/miraiji/)
+# Install (links each command at ~/.claude/skills/<skill>)
 cd Miraiji && bash setup
 ```
 
@@ -93,10 +93,13 @@ After installation, use any skill in Claude Code:
 Miraiji is designed to coexist with gstack and miragoe:
 
 ```
-~/.claude/skills/
-├── gstack/       # Software development (build it)
-├── miraiji/      # Business & marketing (ship it to users)
-└── miragoe/      # Personal growth (become who you are)
+Conceptual stack ownership:
+
+- gstack — Software development (build it)
+- Miraiji — Business and marketing (ship it to users)
+- Miragoe — Personal growth (become who you are)
+
+Miraiji's installer exposes each command directly under `~/.claude/skills/<skill>/`.
 ```
 
 | Stack | Domain | Core Question |
@@ -122,7 +125,9 @@ All data is stored locally. No cloud, no telemetry.
 ├── content/       # Content calendars
 ├── growth/        # Growth experiments
 ├── feedback/      # User feedback logs
-└── retros/        # Business retrospectives
+├── retros/        # Business retrospectives
+├── experiments/   # Executable bounded tests and results
+└── state/         # Current resume point
 ```
 
 ---
@@ -130,6 +135,19 @@ All data is stored locally. No cloud, no telemetry.
 ## Privacy
 
 Miraiji stores everything in `~/.miraiji/` on your local machine. Nothing is uploaded, tracked, or shared. Your business strategy stays yours.
+
+## Evidence-gated decisions
+
+`/persona`, `/pricing`, and `/gtm` now include a bounded hypothesis and minimal
+test contract. Each output names its evidence status, pass/fail/inconclusive metrics,
+stop condition, and approval boundary. Read-only/local evidence tests continue as
+`internal_autorun`; external actions require one explicit approval. Inconclusive results
+route to measurement repair or a revised test instead of ending at hold.
+See [`docs/hypothesis-contract.md`](docs/hypothesis-contract.md).
+
+On first install, an existing `~/.bizstack/` is copied to `~/.miraiji/` without
+deleting the legacy directory. If both directories already exist, setup reports the
+conflict and does not merge them automatically.
 
 ---
 

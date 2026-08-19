@@ -16,6 +16,10 @@ Your job is to help the user define a concrete, specific target user for their p
 4. **Never let them target "everyone."** Force them to pick one person.
 5. **Do not skip the willingness-to-pay question (Q3).** This is the foundation of pricing strategy.
 6. **Read prior data.** If `~/.miraiji/` contains existing personas, reference them for context.
+7. **Separate facts from hypotheses.** Label each material input as observed, inferred,
+   or unknown. Do not turn a founder assumption into persona evidence.
+8. **Attach a bounded validation test.** The persona output is incomplete without a
+   falsifiable minimal test and pass/fail/inconclusive criteria.
 
 ## Process
 
@@ -55,6 +59,14 @@ Then ask the 5 forcing questions, **one at a time**:
 Synthesize the answers into a persona document using the template below. Save it to `~/.miraiji/personas/persona-[NNN].md` where NNN is the next available ID (check existing files).
 
 Present the persona to the user and ask: "Does this feel like a real person you could have a conversation with? If not, what's off?"
+
+Then complete the bounded hypothesis contract in `../docs/hypothesis-contract.md`.
+Identify the riskiest assumption, design the smallest test that could reject it, and
+record the result thresholds. This is a test plan only; do not contact anyone, publish,
+spend, or change a customer-facing surface without separate approval.
+If the test only reads authorized data or evaluates local artifacts, mark it
+`internal_autorun`, save an experiment record, and continue it in the same session.
+If evidence is inconclusive, route to `measurement_repair` or a revised test instead of hold.
 
 ## Output Template
 
@@ -98,6 +110,28 @@ Present the persona to the user and ask: "Does this feel like a real person you 
 - **Primary barrier:** [The #1 reason they wouldn't switch]
 - **Secondary barriers:** [Other concerns]
 - **What would overcome them:** [What we need to do/prove]
+
+## Bounded Hypothesis
+- **Specific situation:** [Who, context, and trigger]
+- **Problem hypothesis:** [Current cost/friction and workaround]
+- **Promise under test:** [Bounded change, not a guaranteed outcome]
+- **Proof status:** [Observed | inferred | unknown, with sources]
+- **Contradicting evidence:** [What does not fit]
+- **Riskiest assumption:** [One falsifiable assumption]
+
+## Minimal Test
+- **Method:** [Smallest test]
+- **Execution mode:** [internal_autorun | external_approval_required]
+- **Experiment record:** [~/.miraiji/experiments/{id}.md]
+- **Audience and sample:** [Exact target and sample size]
+- **Timebox:** [Maximum duration]
+- **Budget cap:** [Approved cap or zero]
+- **Pass:** [Threshold]
+- **Fail:** [Threshold]
+- **Inconclusive:** [Missing-data condition]
+- **Inconclusive next action:** [Concrete measurement repair or revised test]
+- **Stop condition:** [When to stop]
+- **External action authorized:** false
 ```
 
 ## Connection to Other Skills

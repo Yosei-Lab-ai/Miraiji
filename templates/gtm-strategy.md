@@ -3,6 +3,10 @@
 **Created:** [date]
 **Persona:** [Link to persona file if exists]
 **Pricing:** [Link to pricing file if exists]
+**Status:** Hypothesis
+**Evidence status:** [Observed | Inferred | Unknown]
+**Execution mode:** [internal_autorun | external_approval_required]
+**External action authorized:** No
 
 ## Positioning
 For **[target]** who **[need]**, **[product]** is a **[category]** that **[benefit]**.
@@ -69,3 +73,23 @@ Unlike **[alternative]**, we **[differentiator]**.
 | Community engagement | [X]h |
 | DMs/outreach | [X]h |
 | **Total** | **[X]h** |
+
+## Bounded Hypothesis
+- **Specific situation:** [Target user, context, and discovery moment]
+- **Problem hypothesis:** [Why the current discovery route fails]
+- **Promise under test:** [Bounded reason to engage]
+- **Proof status:** [Evidence and sources]
+- **Riskiest assumption:** [One falsifiable channel/message assumption]
+
+## Minimal Test
+- **Method:** [Smallest test]
+- **Experiment record:** [~/.miraiji/experiments/{id}.md]
+- **Audience and sample:** [Exact target and sample size]
+- **Timebox:** [Maximum duration]
+- **Budget cap:** [Approved cap or zero]
+- **Pass:** [Threshold]
+- **Fail:** [Threshold]
+- **Inconclusive:** [Missing-data condition]
+- **Inconclusive next action:** [measurement_repair step or revised test]
+- **Stop condition:** [When to stop]
+- **Next decision:** [Execute internal | Request external approval | Adopt | Revise | Reject | Repair measurement]

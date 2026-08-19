@@ -40,6 +40,21 @@ repos:
         pass_filenames: false
         always_run: true
 
+  - repo: local
+    hooks:
+      - id: miraiji-hypothesis-contract
+        name: Miraiji bounded hypothesis and approval contract
+        entry: scripts/validate-hypothesis-contract.py
+        language: script
+        pass_filenames: false
+        always_run: true
+      - id: miraiji-setup-test
+        name: Miraiji setup migration and idempotency
+        entry: scripts/test-setup.sh
+        language: script
+        pass_filenames: false
+        always_run: true
+
   # ===== #84 canonical セキュリティ hooks (oreInc-governance#84・追記配布 #247) =====
   # 既存 S5 構造ガードは不可侵。下記は別 repo ブロックとして追記のみ。
   # ----- Common: standard pre-commit hooks -----

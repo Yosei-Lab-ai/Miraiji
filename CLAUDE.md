@@ -51,8 +51,15 @@ All outputs are saved to `~/.miraiji/`:
 ├── content/       # /content outputs
 ├── growth/        # /grow outputs
 ├── feedback/      # /feedback outputs
-└── retros/        # /biz-retro outputs
+├── retros/        # /biz-retro outputs
+├── experiments/   # Executable hypothesis tests and results
+└── state/         # Resume pointer and next decision
 ```
+
+Read-only/local experiments use `internal_autorun`. Posting, outreach, billing,
+publishing, account changes, and customer-facing price changes use
+`external_approval_required`. Inconclusive results must name a `measurement_repair`
+step or a revised bounded test; they do not end at hold.
 
 ### ID Convention
 Files use incrementing IDs: `persona-001.md`, `pricing-001.md`, etc.

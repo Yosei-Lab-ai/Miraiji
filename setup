@@ -1,38 +1,95 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SKILLS_DIR="$HOME/.claude/skills/bizstack"
-DATA_DIR="$HOME/.bizstack"
+MIRAIJI_DIR="$(cd "$(dirname "$0")" && pwd)"
+SKILLS_ROOT="${HOME}/.claude/skills"
+DATA_DIR="${HOME}/.miraiji"
+LEGACY_DATA_DIR="${HOME}/.bizstack"
+SKILLS=(persona pricing gtm market-scan bizplan launch content outreach measure grow feedback biz-retro)
 
-echo "bizstack setup"
-echo "=============="
-echo ""
+is_expected_link() {
+    local source="$1" target="$2" actual expected
+    if [ -L "$target" ] && [ "$(readlink "$target")" = "$source" ]; then
+        return 0
+    fi
+    case "$(uname -s)" in
+        MINGW*|MSYS*|CYGWIN*)
+            command -v powershell.exe >/dev/null 2>&1 || return 1
+            command -v cygpath >/dev/null 2>&1 || return 1
+            [ -d "$target" ] || return 1
+            actual="$(powershell.exe -NoProfile -Command "(Get-Item -LiteralPath '$(cygpath -w "$target")').Target" 2>/dev/null | tr -d '\r')"
+            expected="$(cygpath -w "$source")"
+            [ "${actual,,}" = "${expected,,}" ]
+            ;;
+        *) return 1 ;;
+    esac
+}
 
-# Create skills symlink
-echo "→ Linking skills to $SKILLS_DIR"
-mkdir -p "$(dirname "$SKILLS_DIR")"
-if [ -L "$SKILLS_DIR" ]; then
-    echo "  Symlink already exists, updating..."
-    rm "$SKILLS_DIR"
-elif [ -d "$SKILLS_DIR" ]; then
-    echo "  Directory exists at $SKILLS_DIR. Please remove it first."
-    exit 1
+link_skill() {
+    local skill="$1"
+    local source="${MIRAIJI_DIR}/${skill}"
+    local target="${SKILLS_ROOT}/${skill}"
+
+    if is_expected_link "$source" "$target"; then
+        echo "[skip] /${skill} already linked"
+        return
+    fi
+    if [ -e "$target" ] || [ -L "$target" ]; then
+        echo "[FAIL] ${target} already exists and is not the expected Miraiji link." >&2
+        echo "       Move it aside explicitly, then rerun setup." >&2
+        exit 2
+    fi
+
+    case "$(uname -s)" in
+        MINGW*|MSYS*|CYGWIN*)
+            if ! command -v cmd.exe >/dev/null 2>&1 || ! command -v cygpath >/dev/null 2>&1; then
+                echo "[FAIL] Windows junction setup requires cmd.exe and cygpath." >&2
+                exit 2
+            fi
+            cmd.exe /c mklink /J "$(cygpath -w "$target")" "$(cygpath -w "$source")" >/dev/null
+            ;;
+        *) ln -s "$source" "$target" ;;
+    esac
+    echo "[done] /${skill}: ${target} -> ${source}"
+}
+
+echo "=== Miraiji Setup ==="
+mkdir -p "$SKILLS_ROOT"
+for skill in "${SKILLS[@]}"; do
+    link_skill "$skill"
+done
+
+LAST_COMPLETED=setup
+if [ -d "$LEGACY_DATA_DIR" ] && [ ! -e "$DATA_DIR" ]; then
+    cp -a "$LEGACY_DATA_DIR" "$DATA_DIR"
+    LAST_COMPLETED=legacy-data-migration
+    echo "[migrate] Copied legacy data to ${DATA_DIR}; preserved ${LEGACY_DATA_DIR} as backup."
+elif [ -d "$LEGACY_DATA_DIR" ] && [ -e "$DATA_DIR" ]; then
+    echo "[notice] Both ${LEGACY_DATA_DIR} and ${DATA_DIR} exist; no automatic merge was attempted."
 fi
-ln -s "$SCRIPT_DIR" "$SKILLS_DIR"
-echo "  Done."
 
-# Create data directories
-echo "→ Creating data directory at $DATA_DIR"
-mkdir -p "$DATA_DIR"/{personas,pricing,gtm,market,plans,launch/materials,content,growth,feedback,retros}
-echo "  Done."
+mkdir -p "$DATA_DIR"/{personas,pricing,gtm,market,plans,launch/materials,content,growth,feedback,retros,experiments,state}
+if [ ! -e "$DATA_DIR/state/current.md" ]; then
+    printf '%s\n' \
+        '---' \
+        'status: ready' \
+        "last_completed: ${LAST_COMPLETED}" \
+        'next_skill: persona' \
+        'pending_hypothesis: null' \
+        'execution_mode: internal_autorun' \
+        'external_action_authorized: false' \
+        '---' \
+        '' \
+        '# Resume' \
+        '' \
+        'Run `/persona`. Planning does not authorize launch, publication, outreach, billing, purchases, or customer-facing changes.' \
+        > "$DATA_DIR/state/current.md"
+fi
 
 echo ""
-echo "bizstack installed successfully!"
-echo ""
-echo "Available skills:"
-echo "  /persona  — Define your target user"
-echo "  /pricing  — Design your pricing model"
-echo "  /gtm      — Plan your go-to-market strategy"
-echo ""
-echo "Data will be stored in $DATA_DIR"
+echo "=== Miraiji installed ==="
+echo "Data root: ${DATA_DIR}"
+echo "Resume pointer: ${DATA_DIR}/state/current.md"
+echo "Internal evidence-only tests may continue automatically; external actions require one explicit approval."
+echo "Approval boundary: hypotheses and test plans do not authorize launch, publication, outreach, billing, or price changes."
+echo "Start with /persona, then /pricing and /gtm."

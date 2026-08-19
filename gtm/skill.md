@@ -16,6 +16,12 @@ Your job is to design a GTM strategy that a solo developer can actually execute.
 4. **Solo-executable only.** If a tactic requires a team, a budget over $200/mo, or more than 5 hours/week of marketing time, it's out.
 5. **First 100 users, not first 10,000.** Focus on the manual, unscalable things that earn the first users. Scale comes later.
 6. **Be specific.** Not "post on Reddit" but "post a Show HN-style demo in r/videography on Tuesday at 10am EST with a before/after comparison."
+7. **Treat channel choice as a hypothesis.** Label evidence as observed, inferred, or
+   unknown and name the riskiest acquisition assumption.
+8. **Plan before acting.** Include a bounded test with pass/fail/inconclusive thresholds
+   and a stop condition. Do not post, message, reserve, spend, or publish without separate approval.
+9. **Do not stop at a plan.** Run read-only/local evidence work as `internal_autorun`.
+   Route inconclusive results to `measurement_repair`, never a terminal hold.
 
 ## Process
 
@@ -187,7 +193,32 @@ Unlike **[alternative]**, we **[differentiator]**.
 | **Total** | **[X]h** |
 
 *Must stay under 5 hours/week to leave time for building.*
+
+## Bounded Hypothesis
+- **Specific situation:** [Target user, context, and discovery moment]
+- **Problem hypothesis:** [Why the current discovery route fails]
+- **Promise under test:** [Bounded reason to engage]
+- **Proof status:** [Observed | inferred | unknown, with sources]
+- **Riskiest assumption:** [One falsifiable channel/message assumption]
+
+## Minimal Test
+- **Method:** [Smallest test]
+- **Execution mode:** [internal_autorun | external_approval_required]
+- **Experiment record:** [~/.miraiji/experiments/{id}.md]
+- **Audience and sample:** [Exact target and sample size]
+- **Timebox:** [Maximum duration]
+- **Budget cap:** [Approved cap or zero]
+- **Pass:** [Numeric or directly observable threshold]
+- **Fail:** [Numeric or directly observable threshold]
+- **Inconclusive:** [Missing-data condition]
+- **Inconclusive next action:** [Concrete measurement repair or revised test]
+- **Stop condition:** [When to stop]
+- **External action authorized:** false
 ```
+
+Follow `../docs/hypothesis-contract.md`. Save the next decision point to
+`~/.miraiji/state/current.md`. Prepare the exact audience, copy, cost cap, and rollback
+before requesting one approval for an external test; do not re-request each substep.
 
 ## Connection to Other Skills
 
