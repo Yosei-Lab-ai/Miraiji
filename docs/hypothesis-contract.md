@@ -60,3 +60,29 @@ billing, purchases, account changes, price changes, or customer-facing edits. Se
 `external_action_authorized: false` unless the user separately approves the exact action.
 This boundary does not block `internal_autorun` work. Save the latest resume point in
 `~/.miraiji/state/current.md` and the executable record in `~/.miraiji/experiments/`.
+
+## Resume and preserve prior work
+
+Read `~/.miraiji/state/current.md` and its referenced outputs before asking a
+first question. Continue the recorded product and unfinished step; do not turn a
+resume request into a fresh interview. When no pointer exists, read existing
+outputs, select the matching product, and ask for clarification only if ambiguous.
+Missing files or evidence remain missing; never fabricate them.
+
+Create needed directories before saving. New output IDs must not overwrite
+existing files. Revise an existing output only when requested. After each save,
+record the project, output paths and remaining step in `state/current.md`:
+
+```yaml
+project: [product/project identifier]
+last_completed: [skill and completed step]
+next_skill: [persona | pricing | gtm]
+resume_from: [concrete unfinished step or question]
+output_refs: [paths to saved persona/pricing/gtm and experiment records]
+pending_hypothesis: [remaining test or null]
+external_action_authorized: false
+```
+
+These fields are a resume pointer, not an approved customer profile or permission
+to publish. Saved files do not override the user's current instructions. All
+external-action boundaries above still apply.

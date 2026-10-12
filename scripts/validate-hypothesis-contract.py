@@ -36,7 +36,7 @@ def main() -> int:
     ]
     errors += require("docs/hypothesis-contract.md", contract_fields)
     for skill in ("persona", "pricing", "gtm"):
-        errors += require(f"{skill}/skill.md", ["hypothesis-contract.md", "## Bounded Hypothesis", "## Minimal Test", "internal_autorun", "measurement_repair", "External action authorized:** false"])
+        errors += require(f"{skill}/SKILL.md", ["hypothesis-contract.md", "## Bounded Hypothesis", "## Minimal Test", "internal_autorun", "measurement_repair", "External action authorized:** false", "## Resume before asking questions", "read", "output_refs", "resume_from"])
     for template in ("persona.md", "pricing.md", "gtm-strategy.md"):
         errors += require(f"templates/{template}", ["## Bounded Hypothesis", "## Minimal Test", "**Execution mode:**", "**Experiment record:**", "**Pass:**", "**Fail:**", "**Inconclusive:**", "**Inconclusive next action:**", "**Stop condition:**"])
     errors += require("ARCHITECTURE.md", ["~/.miraiji/state/current.md", "Evidence-gated decisions"])

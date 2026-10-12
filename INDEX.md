@@ -50,3 +50,7 @@ pre-commit run --all-files    # 単発フルスキャン
 ## 成果物を作ったら(再発防止)
 新しくトップレベル dir / 生成物を作ったら、**本書の地図表に1行追記**してから commit する。
 ブランチに置き去りにせず、どこに置いたかを必ず明示する。
+
+## Distribution artifacts
+
+- `assets/`: reviewed Phase 1 ZIPs in `assets/distribution/`; no user data or internal tooling.

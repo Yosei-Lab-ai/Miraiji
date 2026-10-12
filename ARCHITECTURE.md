@@ -17,7 +17,7 @@ miraiji/
 ├── docs/
 │   └── skills.md           # Detailed skill documentation
 ├── [skill-name]/
-│   └── skill.md            # Skill definition (Claude Code format)
+│   └── SKILL.md            # Skill definition (Claude Code format)
 └── templates/
     ├── persona.md           # Persona output template
     ├── pricing.md           # Pricing output template
@@ -28,7 +28,7 @@ miraiji/
 
 ### 1. One directory per skill
 
-Each skill lives in its own directory (`persona/`, `pricing/`, `gtm/`, etc.) with a single `skill.md` file. This matches the Claude Code skill convention and keeps skills isolated.
+Each skill lives in its own directory (`persona/`, `pricing/`, `gtm/`, etc.) with a single `SKILL.md` file. This matches the Claude Code skill convention and keeps skills isolated.
 
 ### 2. Templates separate from skills
 
@@ -77,7 +77,7 @@ not a terminal hold. Executable plans and results live under `~/.miraiji/experim
                         │
                         └──→ ~/.miraiji/gtm/gtm-NNN.md
                                 │
-                                └──→ /launch (reads channel strategy)
+                                └──→ saved bounded test / next decision
 ```
 
 ## Installation

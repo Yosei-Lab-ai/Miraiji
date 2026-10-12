@@ -1,164 +1,96 @@
 # Miraiji
 
-**gstack ships your code. Miraiji ships it to users.**
+Business design skills for Claude Code: define a target user, design pricing,
+and plan how to reach users. Outputs are decision inputs and hypotheses;
+they do not guarantee business outcomes.
 
-A Claude Code skill pack that fills the business gaps in your development pipeline. Built to extend [gstack](https://github.com/garrytan/gstack), not replace it.
+## Available skills
 
----
+| Command | Output |
+| --- | --- |
+| `/persona` | Target-user persona, evidence status and bounded validation test |
+| `/pricing` | Pricing design, break-even assumptions and billing/limit requirements |
+| `/gtm` | Positioning, channel priorities and first-100-users strategy |
 
-## The Problem
+Only these three skills are implemented, installed and packaged. Other skill
+directories in the source repository are Coming soon and are excluded from the
+distribution. Launch planning does not execute publication or outreach.
 
-Solo developers and indie hackers share the same bottleneck: **you can build it, but you can't ship it to the people who need it.**
+## Requirements and costs
 
-gstack gives you a world-class sprint cycle:
-Think → Plan → Build → Review → Test → Ship → Reflect
+Use an existing Claude Code environment that can read and write local files.
+The installer requires Bash and symbolic links on macOS/Linux; on Windows use
+Git Bash with `cmd.exe`, `powershell.exe` and `cygpath` for directory junctions.
+The source installer and local distribution need no additional Python or npm
+packages. Building and testing ZIPs requires Python 3.9+ (standard library only).
+gstack and Miragoe are optional integrations, not prerequisites for these skills.
 
-But gstack's pipeline has two blind spots:
+Miraiji includes no model, agent subscription or API credits. Your chosen agent
+and model provider's access requirements, limits, fees and data handling still
+apply. No paid model call is needed for the local packaging/setup tests.
 
-**Blind Spot 1: After CEO Review, Before Engineering**
-You know *what* to build, but not *for whom*, *at what price*, or *through what channel*. Without these answers, you can't even design your auth system correctly.
+## Local installation
 
-**Blind Spot 2: After Ship**
-Your code is released, but nobody knows it exists. You need launch strategy, marketing, user acquisition, and growth measurement.
-
-Miraiji fills both gaps.
-
----
-
-## The Extended Pipeline
-
-```
-BEFORE BUILD (Business Design — after CEO review, before engineering):
-/office-hours → /plan-ceo-review → /persona → /pricing → /gtm → /plan-eng-review
-
-AFTER SHIP (Go-to-Market — after release):
-/ship → /launch → /content → /outreach → /measure → /grow → /feedback → /biz-retro
-```
-
----
-
-## Quick Start
+For an authorized local distribution, extract `miraiji-phase1.zip` to a permanent
+folder, open Bash there, and run:
 
 ```bash
-# Clone
+bash setup
+```
+
+Keep that folder in place: installed commands link to it. Do not copy only the
+SKILL.md files; their `references/` folders must stay with them. If a command
+directory already belongs to another installation, setup stops without replacing
+it. Resolve that collision explicitly; do not delete another user's skills.
+Rerunning setup from the same folder preserves saved data and resume state.
+
+The free source installation uses the same command:
+
+```bash
 git clone https://github.com/Yosei-Lab-ai/Miraiji.git
-
-# Install (links each command at ~/.claude/skills/<skill>)
-cd Miraiji && bash setup
+cd Miraiji
+bash setup
 ```
 
-After installation, use any skill in Claude Code:
+Source skills reference `../docs/hypothesis-contract.md` relative to their physical
+repository directory. Packaged skills carry that contract in `references/`.
+If Agensi delivers a skill through its agent connection, follow Agensi's delivery
+instructions; the local ZIP workflow is for authorized local copies.
 
-```
-> /persona      # Define your target user
-> /pricing      # Design your price structure
-> /gtm          # Plan your go-to-market strategy
-```
+## Saved work and resume
 
----
+Outputs live in `~/.miraiji/personas/`, `pricing/`, `gtm/` and `experiments/`.
+The current pointer is `~/.miraiji/state/current.md`. To continue, invoke the
+recorded skill and ask it to resume the saved project. Each skill instructs the agent to read that
+pointer and the referenced files before asking questions, then continue the
+unfinished step. Missing or ambiguous records trigger a specific question rather
+than invented answers. A new project or fresh interview requires your request.
 
-## Skills
-
-### Phase 1 — Business Design (Available Now)
-
-| Skill | Persona | What it does |
-|-------|---------|-------------|
-| `/persona` | UX Researcher | Defines your target user through 5 forcing questions. Outputs a concrete persona document. |
-| `/pricing` | CFO | Designs your pricing model, tier structure, and break-even analysis. Outputs engineering requirements for billing & limits. |
-| `/gtm` | CMO | Creates your go-to-market strategy: positioning, messaging, channel strategy, and first-100-users plan. |
-
-### Phase 2 — Go-to-Market (Coming Soon)
-
-| Skill | Persona | What it does |
-|-------|---------|-------------|
-| `/launch` | Launch Manager | Creates launch playbooks and materials for Product Hunt, HN, Reddit, X. |
-| `/content` | Content Marketer | Designs content calendars, blog outlines, social posts, email sequences. |
-| `/outreach` | Community Manager | Strategies for acquiring your first 100 users through communities and outreach. |
-
-### Phase 3 — Growth (Coming Soon)
-
-| Skill | Persona | What it does |
-|-------|---------|-------------|
-| `/measure` | Growth Analyst | KPI design, funnel setup, dashboard architecture. |
-| `/grow` | Growth Hacker | Growth experiment design with ICE scoring and prioritization. |
-| `/feedback` | Customer Success | Feedback collection, triage, and product improvement loops. |
-| `/market-scan` | Biz Dev | Competitive analysis, market sizing, positioning maps. |
-| `/bizplan` | Biz Planner | Full business plan: vision → strategy → 12-month P&L. |
-| `/biz-retro` | COO | Weekly/monthly business retrospective with unified metrics. |
-
----
-
-## The Three Stacks
-
-Miraiji is designed to coexist with gstack and miragoe:
-
-```
-Conceptual stack ownership:
-
-- gstack — Software development (build it)
-- Miraiji — Business and marketing (ship it to users)
-- Miragoe — Personal growth (become who you are)
-
-Miraiji's installer exposes each command directly under `~/.claude/skills/<skill>/`.
-```
-
-| Stack | Domain | Core Question |
-|-------|--------|---------------|
-| miragoe | Self | "Who am I becoming?" |
-| gstack | Product | "What do I build?" |
-| miraiji | Business | "How do I deliver it?" |
-
----
-
-## Data Storage
-
-All data is stored locally. No cloud, no telemetry.
-
-```
-~/.miraiji/
-├── personas/      # Target user personas
-├── pricing/       # Pricing design documents
-├── gtm/           # Go-to-market strategies
-├── market/        # Competitive analysis
-├── plans/         # Business plans
-├── launch/        # Launch playbooks & materials
-├── content/       # Content calendars
-├── growth/        # Growth experiments
-├── feedback/      # User feedback logs
-├── retros/        # Business retrospectives
-├── experiments/   # Executable bounded tests and results
-└── state/         # Current resume point
-```
-
----
+On first install, if `~/.bizstack/` exists and `~/.miraiji/` does not, setup copies
+the old data and preserves the original. If both exist, it reports the conflict
+without merging. Existing files and saved resume pointers are not overwritten.
+Saved plans or approval flags do not authorize posting, messages, purchases,
+account changes or customer-facing price changes.
 
 ## Privacy
 
-Miraiji stores everything in `~/.miraiji/` on your local machine. Nothing is uploaded, tracked, or shared. Your business strategy stays yours.
+Miraiji saves outputs locally and adds no telemetry or separate network service.
+Your chosen agent may send prompts or file contents to its model provider under
+that provider's settings and terms. Review those before using confidential data.
+User outputs, credentials and internal repository tooling are excluded from the
+distribution by an explicit file allowlist.
 
-## Evidence-gated decisions
+## Free MIT source and packaged edition
 
-`/persona`, `/pricing`, and `/gtm` now include a bounded hypothesis and minimal
-test contract. Each output names its evidence status, pass/fail/inconclusive metrics,
-stop condition, and approval boundary. Read-only/local evidence tests continue as
-`internal_autorun`; external actions require one explicit approval. Inconclusive results
-route to measurement repair or a revised test instead of ending at hold.
-See [`docs/hypothesis-contract.md`](docs/hypothesis-contract.md).
-
-On first install, an existing `~/.bizstack/` is copied to `~/.miraiji/` without
-deleting the legacy directory. If both directories already exist, setup reports the
-conflict and does not merge them automatically.
-
----
-
-## 💖 Support
-
-Miraiji is free and MIT-licensed. If it helps you ship what you build,
-consider [sponsoring its development](https://github.com/sponsors/Yosei-Lab-ai) —
-sponsorship funds new skills, better docs, and faster issue turnaround.
-
----
+The free source and packaged edition contain the same three implemented skills.
+The packaged edition adds installation/packaging documentation and bundled
+references; it does not add exclusive functionality or revoke MIT rights.
+The source remains available at [Yosei-Lab-ai/Miraiji](https://github.com/Yosei-Lab-ai/Miraiji).
+Any listing fee or separately stated support service does not change the MIT
+permission to use, copy, modify and redistribute the included software.
+No paid support or future skill delivery is promised by this repository.
 
 ## License
 
-MIT — Copyright (c) 2026 Yosei Lab
+MIT. Copyright (c) 2026 Yosei Lab. See `LICENSE` for the complete permissions
+and warranty disclaimer. Include that notice when redistributing copies.
