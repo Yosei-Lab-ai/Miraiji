@@ -5,7 +5,7 @@ MIRAIJI_DIR="$(cd "$(dirname "$0")" && pwd)"
 SKILLS_ROOT="${HOME}/.claude/skills"
 DATA_DIR="${HOME}/.miraiji"
 LEGACY_DATA_DIR="${HOME}/.bizstack"
-SKILLS=(persona pricing gtm market-scan bizplan launch content outreach measure grow feedback biz-retro)
+SKILLS=(persona pricing gtm)
 
 is_expected_link() {
     local source="$1" target="$2" actual expected
@@ -46,7 +46,7 @@ link_skill() {
                 echo "[FAIL] Windows junction setup requires cmd.exe and cygpath." >&2
                 exit 2
             fi
-            cmd.exe /c mklink /J "$(cygpath -w "$target")" "$(cygpath -w "$source")" >/dev/null
+            MSYS_NO_PATHCONV=1 cmd.exe /c mklink /J "$(cygpath -w "$target")" "$(cygpath -w "$source")" >/dev/null
             ;;
         *) ln -s "$source" "$target" ;;
     esac
@@ -54,6 +54,12 @@ link_skill() {
 }
 
 echo "=== Miraiji Setup ==="
+for skill in "${SKILLS[@]}"; do
+    if [ ! -f "${MIRAIJI_DIR}/${skill}/SKILL.md" ]; then
+        echo "[FAIL] Missing ${skill}/SKILL.md; keep the distribution together." >&2
+        exit 2
+    fi
+done
 mkdir -p "$SKILLS_ROOT"
 for skill in "${SKILLS[@]}"; do
     link_skill "$skill"
@@ -68,13 +74,15 @@ elif [ -d "$LEGACY_DATA_DIR" ] && [ -e "$DATA_DIR" ]; then
     echo "[notice] Both ${LEGACY_DATA_DIR} and ${DATA_DIR} exist; no automatic merge was attempted."
 fi
 
-mkdir -p "$DATA_DIR"/{personas,pricing,gtm,market,plans,launch/materials,content,growth,feedback,retros,experiments,state}
+mkdir -p "$DATA_DIR"/{personas,pricing,gtm,experiments,state}
 if [ ! -e "$DATA_DIR/state/current.md" ]; then
     printf '%s\n' \
         '---' \
         'status: ready' \
         "last_completed: ${LAST_COMPLETED}" \
         'next_skill: persona' \
+        'resume_from: persona first unanswered question' \
+        'output_refs: []' \
         'pending_hypothesis: null' \
         'execution_mode: internal_autorun' \
         'external_action_authorized: false' \
@@ -92,4 +100,4 @@ echo "Data root: ${DATA_DIR}"
 echo "Resume pointer: ${DATA_DIR}/state/current.md"
 echo "Internal evidence-only tests may continue automatically; external actions require one explicit approval."
 echo "Approval boundary: hypotheses and test plans do not authorize launch, publication, outreach, billing, or price changes."
-echo "Start with /persona, then /pricing and /gtm."
+echo "Available: /persona, /pricing, /gtm. Read the resume pointer before continuing saved work."

@@ -12,16 +12,8 @@ It extends gstack's development pipeline with business strategy skills.
 - `/pricing` — Price structure design (CFO persona)
 - `/gtm` — Go-to-market strategy (CMO persona)
 
-### Phase 2 (Stubs)
-- `/market-scan` — Competitive analysis
-- `/bizplan` — Business plan creation
-- `/launch` — Launch execution planning
-- `/content` — Content strategy & production
-- `/outreach` — User acquisition
-- `/measure` — KPI design & tracking
-- `/grow` — Growth experiment design
-- `/feedback` — User feedback loops
-- `/biz-retro` — Business retrospective
+Only these three implemented skills are installed and included in the distribution.
+Other repository skill directories are roadmap stubs, not available commands.
 
 ## Common Patterns
 
@@ -35,7 +27,7 @@ Skills read each other's outputs automatically:
 /persona → /pricing (reads willingness-to-pay from persona)
 /persona → /gtm (reads user locations from persona)
 /pricing → /plan-eng-review (passes billing & limit requirements)
-/gtm → /launch (passes channel strategy)
+/gtm → saved bounded test and next decision
 ```
 
 ### Data Storage
@@ -75,3 +67,6 @@ miraiji fills the gaps in gstack's pipeline:
 
 - Public documentation: English
 - Skill interactions: Support both English and Japanese
+
+Read `~/.miraiji/state/current.md` and its referenced outputs before new questions.
+Continue the saved project and unfinished step unless the user requests a restart.
